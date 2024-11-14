@@ -21,7 +21,7 @@ const Widget = ({
   const canGoBackRef = useRef<boolean>(false)
 
   const searchParams = useSearchParams()
-  const paramString = resolvePersistentQueryParams(searchParams)
+  const paramString = resolvePersistentQueryParams(searchParams).toString()
 
 
     // https://stackoverflow.com/questions/71853839/how-to-check-if-userouter-can-use-router-back-in-nextjs-app
@@ -55,7 +55,7 @@ const Widget = ({
         <div className='w-full h-full px-6 pb-6 flex flex-col justify-between'>
           {children}
         </div>
-        <div id='widget_root' />
+        <div id='modal_portal_root' />
       </div>
     </div>
   )
