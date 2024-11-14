@@ -1,24 +1,28 @@
-import { useAtom } from 'jotai'
+import { useAtom } from "jotai";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from '@hanzo/ui/primitives'
-
-import SuccessIcon from '../SuccessIcon'
-import { bridgeMintTransactionAtom } from '@/store/teleport'
-import SwapItems from './SwapItems'
-import shortenAddress from '@/components/utils/ShortenAddress'
-import Gauge from '@/components/gauge'
-import type { Network, Token } from '@/types/teleport'
+import SuccessIcon from "../SuccessIcon";
+import { bridgeMintTransactionAtom } from "@/store/teleport";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/shadcn/tooltip";
+import SwapItems from "./SwapItems";
+import shortenAddress from "@/components/utils/ShortenAddress";
+import Gauge from "@/components/gauge";
+import type { Network, Token } from "@/types/teleport";
 
 const SwapSuccess: React.FC<{
-  className?: string
-  sourceNetwork: Network
-  sourceAsset: Token
-  destinationNetwork: Network
-  destinationAsset: Token
-  destinationAddress: string
-  sourceAmount: string
-  swapId: string
-}> = ({
+  className?: string;
+  sourceNetwork: Network;
+  sourceAsset: Token;
+  destinationNetwork: Network;
+  destinationAsset: Token;
+  destinationAddress: string;
+  sourceAmount: string;
+  swapId: string;
+}
+> = ({
   sourceNetwork,
   sourceAsset,
   destinationNetwork,
@@ -31,7 +35,7 @@ const SwapSuccess: React.FC<{
   //atoms
   const [bridgeMintTransactionHash, setBridgeMintTransactionHash] = useAtom(
     bridgeMintTransactionAtom
-  )
+  );
   return (
     <div className={`w-full flex flex-col ${className}`}>
       <div className="space-y-5">
@@ -54,7 +58,7 @@ const SwapSuccess: React.FC<{
               <div className="!-mt-2">
                 <span className=" text-[#7e8350] font-bold text-lg">
                   {sourceAsset.asset} -&gt; {destinationAsset.asset}
-                </span>{' '}
+                </span>{" "}
                 Swap Success
               </div>
             </div>
@@ -80,9 +84,9 @@ const SwapSuccess: React.FC<{
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <a
-                          target={'_blank'}
+                          target={"_blank"}
                           href={destinationNetwork.transaction_explorer_template.replace(
-                            '{0}',
+                            "{0}",
                             bridgeMintTransactionHash
                           )}
                           className="cursor-pointer"
@@ -117,7 +121,7 @@ const SwapSuccess: React.FC<{
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SwapSuccess
+export default SwapSuccess;

@@ -1,4 +1,3 @@
-/*
 import KnownInternalNames from "../../knownIds"
 import Erc20Abi from '../../abis/ERC20.json'
 import formatAmount from "../../formatAmount";
@@ -121,4 +120,3 @@ export default function useStarknetBalance(): BalanceProvider {
         supportedNetworks
     }
 }
-*/

@@ -2,19 +2,14 @@
 import { useState } from "react"
 import { Plus } from "lucide-react"
 
-import { 
-  Button, 
-  Dialog, 
-  DialogContent, 
-  DialogFooter, 
-  DialogHeader, 
-  DialogTitle 
-} from "@hanzo/ui/primitives"
+import { Button } from '@hanzo/ui/primitives'
 
 import WalletIcon from "./icons/WalletIcon"
 import shortenAddress from "./utils/ShortenAddress"
 import useWallet from "../hooks/useWallet"
 import ConnectButton from "./buttons/connectButton"
+import SubmitButton from "./buttons/submitButton"
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "./shadcn/dialog"
 import AddressIcon from "./AddressIcon"
 import { type Wallet } from "../stores/walletStore"
 
@@ -119,13 +114,16 @@ const WalletsMenu = () => {
 
   return (
     <ConnectButton>
-      <Button
-        className='border-none !px-4 flex justify-center gap-2' 
+      <SubmitButton
+        text_align="center"
+        icon={<WalletIcon className='h-5 w-5' strokeWidth={2} />}
+        className='border-none !px-4' 
         type="button" 
+        isDisabled={false} 
+        isSubmitting={false}
       >
-        <WalletIcon className='h-5 w-5' strokeWidth={2} />
-        <span>Connect a wallet</span>
-      </Button>
+        Connect a wallet
+      </SubmitButton>
     </ConnectButton>
   )
 }

@@ -34,6 +34,7 @@ const useSettings = (): BridgeAppSettings => {
 
   const container = useContext<SettingsContainer | null>(SettingsContext)
 
+  // console.log("::app settings:", Object.keys(data))
   if (container === undefined) {
     throw new Error("useSettings must be used within a SettingsProvider")
   }

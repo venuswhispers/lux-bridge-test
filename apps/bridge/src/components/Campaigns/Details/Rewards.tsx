@@ -5,9 +5,6 @@ import useSWR from "swr"
 import { Clock } from "lucide-react"
 import { useAccount } from "wagmi"
 
-import { Progress } from "@hanzo/ui/primitives";
-
-
 import { useSettings } from "@/context/settings"
 import BackgroundField from "../../backgroundField";
 import type { Campaign, Reward, RewardPayout } from "@/lib/BridgeApiClient"
@@ -16,11 +13,12 @@ import { RewardsComponentSkeleton } from "../../Skeletons"
 import { ApiResponse } from "@/Models/ApiResponse"
 import ClickTooltip from "../../Tooltips/ClickTooltip"
 import shortenAddress from "../../utils/ShortenAddress"
+import { Progress } from "../../ProgressBar";
 
 const Rewards: React.FC<{
   campaign: Campaign
-}> = ({
-  campaign
+}> = ({ 
+  campaign 
 }) => {
 
     const settings = useSettings()
@@ -65,7 +63,7 @@ const Rewards: React.FC<{
                     <span>Onboarding incentives that are earned by transferring to&nbsp;</span>{network?.display_name}<span>.&nbsp;</span>
                     <a
                         target='_blank'
-                        href="https://docs.lux.network/"
+                        href="https://docs.bridge.lux.network/user-docs/layerswap-campaigns/usdop-rewards"
                         className=" underline hover:no-underline decoration-white cursor-pointer"
                     >Learn more</a>
                 </span>

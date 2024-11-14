@@ -3,12 +3,11 @@ import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
 import TokenSelect from "./TokenSelect"
-import { 
-  Popover, 
-  PopoverContent, 
+import {
+  Popover,
+  PopoverContent,
   PopoverTrigger,
-
-} from '@hanzo/ui/primitives'
+} from "@/components/shadcn/popover"
 import { type Token } from "@/types/teleport"
 
 interface IProps {

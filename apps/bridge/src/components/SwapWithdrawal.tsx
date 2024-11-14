@@ -7,6 +7,7 @@ import NotFound from './Swap/NotFound'
 import { BalancesDataProvider } from '../context/balances'
 
 const SwapWithdrawal: React.FC = () => {
+
   const { swap, swapApiError } = useSwapDataState()
   const { mutateSwap } = useSwapDataUpdate()
 
@@ -14,19 +15,20 @@ const SwapWithdrawal: React.FC = () => {
     mutateSwap()
   }, [])
 
-  return swap ? (
+
+  return (swap ? (
     <BalancesDataProvider>
-      <SwapDetails type="widget" />
+      <SwapDetails type='widget' />
     </BalancesDataProvider>
+
   ) : (
     <Widget>
-      <div
-        className={`pb-6 rounded-lg w-full overflow-hidden relative h-[548px]`}
-      >
-        {swapApiError && <NotFound />}
+      <div className={`pb-6 rounded-lg w-full overflow-hidden relative h-[548px]`}>
+        {swapApiError && (<NotFound />) }
       </div>
     </Widget>
-  )
+
+  ))
 }
 
 export default SwapWithdrawal
