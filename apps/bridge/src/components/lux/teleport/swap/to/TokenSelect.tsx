@@ -1,26 +1,25 @@
-import Image from "next/image";
-import {
-  CommandItem,
-  CommandList,
-  CommandWrapper,
-} from "../../../../shadcn/command";
-import type { Token } from "@/types/teleport";
+import type { Token } from '@/types/teleport'
+
+import React from 'react'
+import Image from 'next/image'
+import CommandWrapper from '@/components/shadcn/command-wrapper'
+
+import { cn } from '@hanzo/ui/util'
+import { CommandItem, CommandList } from '@hanzo/ui/primitives'
 
 const TokenSelect: React.FC<{
   values: Token[]
   setValue: (token: Token) => void
-}> = ({ 
-  values, 
-  setValue 
-}) => (
+}> = ({ values, setValue }) => (
   <CommandWrapper>
     <CommandList>
       {values.map((item) => {
         return (
           <CommandItem
-            className={`border-t border-t-slate-500 justify-between gap-6 ${
-              item.status !== "active" && "opacity-30"
-            }`}
+            className={cn(
+              'border-t border-t-slate-500 justify-between gap-6 hover:!bg-[#1F1F1F] aria-selected:!bg-[#1F1F1F] !border-none cursor-pointer',
+              item.status !== 'active' && 'opacity-30'
+            )}
             disabled={false}
             value={item.asset}
             key={item.asset}
@@ -44,18 +43,18 @@ const TokenSelect: React.FC<{
               </div>
             </div>
             <div className="text-xs text-[white]/60">
-              {item.status === "active" && "active"}
+              {item.status === 'active' && 'active'}
             </div>
           </CommandItem>
-        );
+        )
       })}
     </CommandList>
   </CommandWrapper>
 )
 
 export enum LayerDisabledReason {
-  LockNetworkIsTrue = "",
-  InsufficientLiquidity = "Temporarily disabled. Please check later.",
+  LockNetworkIsTrue = '',
+  InsufficientLiquidity = 'Temporarily disabled. Please check later.',
 }
 
-export default TokenSelect;
+export default TokenSelect
